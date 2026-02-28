@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cool Stuff | Jonathan Pham</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../index.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+  </head>
+  <body>
+    <div class="bg-ambient" aria-hidden="true"></div>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Site navigation">
+        <div class="sidebar__top">
+          <a class="brand" href="../index.html">JP</a>
+          <button class="sidebar__toggle" id="sidebarToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+          <button class="sidebar__collapse" id="sidebarCollapse">≡</button>
+        </div>
+        <nav class="sidebar__nav" id="sidebarNav">
+          <a class="nav-link" href="../index.html"><span class="nav-icon">🏠</span><span class="nav-text">Home Page</span></a>
+          <a class="nav-link" href="../About/about_index.html"><span class="nav-icon">👤</span><span class="nav-text">About</span></a>
+          <a class="nav-link" href="../Experience/experience_index.html"><span class="nav-icon">💼</span><span class="nav-text">Experience</span></a>
+          <a class="nav-link" href="../Projects/Projects_index.html"><span class="nav-icon">🚀</span><span class="nav-text">Projects</span></a>
+          <a class="nav-link" href="../Skills/skills_index.html"><span class="nav-icon">⚡</span><span class="nav-text">Skills</span></a>
+          <a class="nav-link" href="../Leadership/leadership_index.html"><span class="nav-icon">🎯</span><span class="nav-text">Leadership</span></a>
+          <a class="nav-link active" href="coolStuff_index.html"><span class="nav-icon">✨</span><span class="nav-text">Cool Stuff</span></a>
+          <a class="nav-link" href="../Analytics/analytics_index.html"><span class="nav-icon">📊</span><span class="nav-text">Analytics</span></a>
+          <a class="nav-link" href="../Contact/contact_index.html"><span class="nav-icon">📬</span><span class="nav-text">Contact</span></a>
+          <button class="nav-link nav-link--btn" id="resumeBtn" type="button"><span class="nav-icon">📄</span><span class="nav-text">Resume</span></button>
+          <div class="sidebar__meta">
+            <div class="pill" id="themePill">PST Auto Theme</div>
+            <div class="muted tiny">Light in day, dark at night.</div>
+          </div>
+        </nav>
+      </aside>
+      <main class="content">
+        <section class="section reveal">
+          <div class="section__head">
+            <h2><span class="accent">Cool Stuff</span></h2>
+            <p class="muted">Experiments, live data, and small demos.</p>
+          </div>
+          <div class="grid grid--projects">
+            <article class="card glass">
+              <h3>Today I Learned</h3>
+              <p class="muted tiny" id="tilDate"></p>
+              <p id="tilText" class="muted"></p>
+            </article>
+            <article class="card glass">
+              <h3>AI Headlines</h3>
+              <ul id="aiFeed" class="list muted">
+                <li>Loading AI news...</li>
+              </ul>
+            </article>
+            <div class="cool-grid">
+              <div class="card glass">
+                <h3>Mini Demo: Sentiment Checker</h3>
+                <p class="muted">Simple rule-based NLP demo.</p>
+                <input id="sentimentInput" type="text" placeholder="Type something..." />
+                <button id="analyzeBtn" class="btn">Analyze</button>
+                <p id="sentimentResult"></p>
+              </div>
+              <div class="card glass">
+                <h3>Photo Slideshow</h3>
+                <p class="muted">Moments, projects, and experiments.</p>
+                <div class="slideshow">
+                  <img id="slideImage" src="../images/tritonBall.jpeg" alt="Slideshow image" />
+                  <div class="slide-controls">
+                    <button id="prevSlide" class="icon-btn">←</button>
+                    <button id="nextSlide" class="icon-btn">→</button>
+                  </div>
+                </div>
+                <div class="slide-caption" id="slideCaption">UCSD AI Hackathon – Building a RAG prototype.</div>
+                <div class="slide-dots" id="slideDots"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <p>© <span id="year"></span> Jonathan Pham</p>
+          <a class="muted" href="../index.html">Back to top ↑</a>
+        </footer>
+      </main>
+    </div>
+    <!-- Resume Modal -->
+    <div class="modal" id="resumeModal" aria-hidden="true">
+      <div class="modal__panel glass" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+        <div class="modal__top">
+          <h3 id="resumeTitle">View my resume</h3>
+          <button class="icon-btn" id="resumeClose" aria-label="Close">✕</button>
+        </div>
+        <p class="muted">Enter your email to open the resume. This helps me see who's viewing it.</p>
+        <form id="resumeForm">
+          <label>Email<span style="color: red;">*</span>
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <button class="btn" type="submit">Continue</button>
+          <p class="muted tiny" style="margin-top:10px;">
+            If you'd rather not share email, contact me directly from the Contact section.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="chat-tooltip" id="chatTooltip">
+      💬 Click me to ask anything about Jonathan!
+    </div>
+    
+    <div class="chat-fab" id="chatFab" title="Ask about Jonathan">🤖</div>
+    <div class="chat-panel glass" id="chatPanel" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header__info"><div class="dot"></div><span>Ask about Jonathan</span></div>
+        <button class="icon-btn" id="chatClose">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg chat-msg--ai" id="welcomeMsg">
+          <span></span>
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Ask something about Jonathan..." autocomplete="off" />
+        <button class="chat-send" id="chatSend">➤</button>
+      </div>
+    </div>
+    <script src="../index.js"></script>
+  </body>
+</html>
