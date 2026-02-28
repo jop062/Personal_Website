@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hour12: false,
     }).format(now);
     const hour = parseInt(pstHour, 10);
-    const isLight = hour >= 7 && hour < 18;
+    const isLight = hour >= 7 && hour < 24;
     document.body.classList.toggle("dark", !isLight);
     const pill = document.getElementById("themePill");
     if (pill) pill.textContent = isLight ? "PST Light Mode" : "PST Dark Mode";
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Session timer
-  let seconds = 0;
+  let seconds = 31;
   function formatTime(totalSeconds) {
     const h = Math.floor(totalSeconds / 3600);
     const m = Math.floor((totalSeconds % 3600) / 60);
@@ -259,9 +259,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const imgPrefix = isSub ? "../" : "";
 
     const slides = [
-      { src: `${imgPrefix}../images/tritonBall.jpeg`, caption: "UCSD Triton Ball Sports Analytics Club – Built models and analytics for UCSD sports teams." },
-      { src: `${imgPrefix}../images/CCCAAWomen-568.jpg`, caption: "Playing tennis" },
-      { src: `${imgPrefix}../images/IMG_4723.jpg`, caption: "Fishing in Minnesota" }
+      { src: `${imgPrefix}images/tritonBall.jpeg`, caption: "UCSD Triton Ball Sports Analytics Club – Built models and analytics for UCSD sports teams." },
+      { src: `${imgPrefix}images/CCCAAWomen-568.jpg`, caption: "Playing tennis" },
+      { src: `${imgPrefix}images/IMG_4723.jpg`, caption: "Fishing in Minnesota" }
     ];
 
     let currentSlide = 0;
