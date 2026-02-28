@@ -1232,3 +1232,46 @@ body.dark{
   0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
   30%            { transform: translateY(-6px); opacity: 1; }
 }
+
+/* Social buttons */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.28);
+  color: var(--text) !important;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none !important;
+  width: fit-content;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+}
+
+body.dark .social-btn {
+  background: rgba(255,255,255,0.06);
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Make GitHub icon visible in dark mode */
+body.dark .social-btn img[alt="GitHub"] {
+  filter: invert(1);
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+}
